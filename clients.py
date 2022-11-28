@@ -1,12 +1,12 @@
-from abc import ABCMeta, abstractclassmethod
-class AbstractBaseClient(metaclass=ABCMeta):
-    """Abstract Base Class for dvdrental Database Clients
-    """
+import psycopg
+from psycopg import connect, connection, cursor
 
-    @abstractclassmethod
-    def connect_from_config(self):
-        NotImplementedError("Cannot be instantiated, abstract method must be subclassed")
+conn = psycopg.connect(
+    host = "localhost",
+    user = "postgres",
+    port =  5432,
+    password = "aakashojha873Qa")
 
-    @abstractclassmethod
-    def connect(self):
-        NotImplementedError("Cannot be instantiated, abstract method must be subclassed")
+cursor = cursor(name=None, cursor_factory=None, scrollable=None, withhold=False)
+cursor.close()
+cursor
