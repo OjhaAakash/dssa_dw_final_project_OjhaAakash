@@ -1,0 +1,70 @@
+Metadata-Version: 2.0
+Name: concat
+Version: 0.1.2.dev1
+Summary: An experimental concatenative Python-based programming language
+Home-page: https://github.com/jmanuel1/concat
+Author: Jason Manuel
+Author-email: jama.indo@hotmail.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Keywords: concatenative
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Interpreters
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: ply (<4,>=3.7)
+Requires-Dist: astunparse (<2,>=1.3.0)
+
+Concat
+======
+
+An experimental concatenative Python-based programming language.
+
+Examples are in the examples directory. To see the spec, go to
+[http://jmanuel1.github.io/concat-spec/](http://jmanuel1.github.io/concat-spec/).
+
+
+Building and uploading (on Windows)
+---------------------
+
+Change the version number in `setup.py`. **Upload will fail if you try to push
+an existing version.**
+
+Delete the `dist` directory, if it exists.
+
+    rmdir dist /S
+
+Build source and pure Python-3 distributions.
+
+    py -3 setup.py sdist
+    py -3 setup.py bdist_wheel
+
+Upload.
+
+    twine upload dist/* [-r pypitest]
+
+Testing
+-------
+
+Run the tests under `coverage.py`:
+
+    pip install coverage
+    coverage run setup.py test
+
+Combine the coverage data:
+
+    coverage combine
+
+**Nota Bene**: If you have `concat` installed globally, make sure to create and
+enter a `virtualenv` before testing, so you don't end up running the installed
+version.
+
+Related work
+------------
+
+For a similar idea that is more mature, check out
+[Nustack](https://github.com/BookOwl/nustack).
+
+

@@ -3,6 +3,7 @@ import pandas as pd
 import pypika
 from psycopg import Cursor
 from pypika import PostgreSQLQuery, Schema, Column
+import logging
 
 
 
@@ -18,7 +19,7 @@ SECTION = 'postgresql'
 
 #put etl function
 def create_cursor():
-    cursor = ...
+    cursor = cursor(name=None, cursor_factory=None, scrollable=None, withhold=False)
     return cursor
 
 #reading from the public schema
@@ -76,7 +77,7 @@ import tasks
 #https://apscheduler.readthedocs.io/en/3.x/
 
 if __name__ == '__main__':
-    main()
+   __main__()
 
 
 
