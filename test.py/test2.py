@@ -3,14 +3,14 @@ from psycopg import Cursor
 from pypika import PostgreSQLQuery, Schema, Column
 from kans.workflows import Pipeline
 from kans.tasks import Task
-from kans.clients.postgres import PostgresClient
+from kans.clients.postgres import Postgres
 from kans.plotting import plot_dag
 
 # ============================ PARAMETERS ============================ #
 # This section contains some script parameters
 DATABASE_CONFIG = '.config\.postgres'
 SECTION = 'postgresql'
-DW = Schema('dw')
+DW = Schema('DSSA')
 DVD = Schema('public')
 
 

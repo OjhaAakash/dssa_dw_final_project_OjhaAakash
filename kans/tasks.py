@@ -146,7 +146,7 @@ class Task(BaseTask):
         self.result = self._run(*inputs, **self.kwargs)
 
 
-def create_task(inputs: Task | Tuple):
+def create_task(inputs: Task or Tuple):
     if isinstance(inputs, Task):
         return inputs
     elif isinstance(inputs, tuple):

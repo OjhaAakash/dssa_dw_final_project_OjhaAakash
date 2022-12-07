@@ -7,6 +7,29 @@ from pypika import PostgreSQLQuery, Schema, Column
 
 
 
+import psycopg2
+################
+conn = psycopg2.connect(
+    host="localhost",
+    database="dvdrental",
+    user="postgres",
+    password="aakashojha873Qa")
+cursor = conn.cursor();
+cursor.execute("select * from customer");
+
+
+conn.close()
+##################
+
+conn = psycopg2.connect(
+    host="localhost",
+    database="postgres",
+    user="postgres",
+    password="aakashojha873Qa")
+cursor = conn.cursor();
+cursor.execute("CREATE SCHEMA test1 AUTHORIZATION postgres")
+conn.close()
+
 #put parametrers and constants
 DVD = ... #this is the path to config file
 '''
@@ -30,17 +53,22 @@ The following is the list of the connection parameters:
 
 #put etl function
 def create_cursor():
-    cursor = ...
-    return cursor
+    import psycopg2 as pg
+    engine = pg.connect("dbname='dvdrental' user='postgres' host='localhost' port='5432' password='aakashojha873Qa'")
+    return engine
 
 #reading from the public schema
-def read_table():
-    data = ...
-    return data 
+def read_table(engine):
+    import pandas as pd
+    df = pd.read_sql('select * from customer', con=engine)
+    return df 
 
-def transform_dates():
-    date = ...
-    return date 
+def transform_dates(df):
+    import datetime
+    from datetime import datetime
+    df['last_update']= df['last_update'].dt.strftime('%Y-%m-%d')
+    df['last_update'] 
+    return df
   
 
 
@@ -49,7 +77,19 @@ def transform_dates():
 
 
 #create tasks with etl function
-import tasks
+import kans.tasks
+
+def create_task(inputs: Task | Tuple):
+    if isinstance(inputs, Task):
+        return inputs
+    elif isinstance(inputs, tuple):
+        return Task(*inputs)
+    else:
+        raise TypeError('Step must be a Task, Pipeline or Tuple')
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 from abc import abstractclassmethod, ABCMeta
-from maellin.utils import generate_uuid
-from maellin.logger import LoggingMixin
+from kans.utils import generate_uuid
+from kans.logger import LoggingMixin
 from typing import TypeVar
 
 Queue = TypeVar('Queue')
