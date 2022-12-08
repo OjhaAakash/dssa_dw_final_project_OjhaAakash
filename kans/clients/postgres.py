@@ -4,6 +4,7 @@ from configparser import ConfigParser
 from kans.clients.base import AbstractBaseClient
 
 
+
 class PostgresClient(AbstractBaseClient):
     """Postgres client for working with postgres databases in python_
     """
@@ -27,7 +28,7 @@ class PostgresClient(AbstractBaseClient):
         config_parser = ConfigParser()
 
         # Read the configuration file
-        config_parser.read(path)
+        config_parser.read("/Users/aakashojha/Documents/Stockton/Aakash final project/dssa_dw_final_project_OjhaAakash/dssa_dw_final_project_OjhaAakash/pytest.ini")
         if config_parser.has_section(section):
             config_params = config_parser.items(section)
             for k, v in config_params:
@@ -63,37 +64,3 @@ class PostgresClient(AbstractBaseClient):
         conn._check_connection_ok()
 
         return conn
-"""
-conn = psycopg2.connect(
-    host="localhost",
-    dbname="dvdrental",
-    user="postgres",
-    password="aakashojha873Qa")
-cursor = conn.cursor()
-cursor.execute("select * from actor")
-
-
-
-conn.close()
-##################
-
-conn = psycopg2.connect(
-    host="localhost",
-    dbname="dvdrental",
-    user="postgres",
-    password="aakashojha873Qa")
-cursor = conn.cursor();
-cursor.execute("CREATE SCHEMA test1 AUTHORIZATION postgres")
-conn.close()
-
-# Connect to an existing database
-conn = psycopg2.connect(
-    host="localhost",
-    dbname="dvdrental",
-    user="postgres",
-    password="aakashojha873Qa")
-
-print('PostgreSQL database version:')
-conn.execute('SELECT version()')
-"""
-
