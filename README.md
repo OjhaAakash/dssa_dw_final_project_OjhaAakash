@@ -1,7 +1,4 @@
-# dssa_dw_final_project_OjhaAakash
-
-                            The Kans Company
-
+                           The Kans Company
 This github repository is a college project which use postgres sql to connect with the database and create a star schema. 
 Kans is the name of my dog, who passed away and was very close to me.
 
